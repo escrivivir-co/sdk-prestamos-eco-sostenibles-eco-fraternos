@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>plan-oro.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p><br>
+Quiero que me guies por los pasos legales para hacer este regalo a mi prestatario de sangre. Tengo una prima que es joyera y quiero encargarle un pieza por valor de X € que a su vez sea una especie de ornamento hecho a piezas de valor 500€. Mi objetivo es que el regalo le permita gestionar una pulsera o rosario que pueda ir gastando o convervando quitando o recuperando piezas a medida que viva. Podrian ser un maximo de 24 piezas. Mi prima joyera tiene su empresa, como autónoma y está en orden, además tiene como linea comercial comprar oro ecoresponsable. Todos los pasos con hacienda y legal para poder hacer este regalo.</p>
+<p>Aquí tienes una guía práctica de los pasos legales y fiscales que conviene seguir en España si quieres hacer el regalo que describes (una pulsera/rosario de hasta unas 24 piezas hechas por tu prima joyera), asegurándote de cumplir con Hacienda y evitar problemas futuros.</p>
+<hr>
+<h2 id="%F0%9F%93%8C-1-qu%C3%A9-tipo-de-operaci%C3%B3n-es-realmente">📌 1) Qué tipo de operación es realmente</h2>
+<p>Aunque en el lenguaje diario lo llames &quot;regalo&quot;, **a efectos legales Hacienda y la ley civil lo consideran una donación (transmisión gratuita de bienes). Esto ocurre siempre que una persona da un bien sin recibir nada a cambio.</p>
+<p>👉 No importa que haya un familiar implicado: la ley no exime a las donaciones entre parientes del deber de declararlas.</p>
+<hr>
+<h2 id="%F0%9F%93%8C-2-si-tu-prima-te-factura-la-joya-%C2%BFcompraventa-o-donaci%C3%B3n">📌 2) Si tu prima te factura la joya: ¿Compraventa o donación?</h2>
+<p>Tu prima, al ser autónoma con empresa, **deberá tratar la operación como una venta con factura si te vende la pieza:</p>
+<ol>
+<li>
+<p>Factura por la creación/venta de la pulsera/rosario. Deberá incluir:</p>
+<ul>
+<li>
+<p>Descripción detallada de la pieza (componentes, materiales, oro, valor unitario de las piezas).</p>
+</li>
+<li>
+<p>Precio total (X €).</p>
+</li>
+<li>
+<p>IVA repercutido (al tratarse de joyería, sí lleva IVA, normalmente 21 %, salvo que sea oro de inversión puro según criterios específicos).</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Facturación en regla. Tu prima debe emitir la factura como autónoma:</p>
+<ul>
+<li>
+<p>Daros los NIF/identidades completos.</p>
+</li>
+<li>
+<p>Incluir el IVA y su inscripción en Hacienda.</p>
+</li>
+<li>
+<p>Llevarlo en su contabilidad y presentar sus modelos trimestrales de IVA (modelo 303) y resúmenes anuales (modelo 390).</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>👉 El hecho de que tú seas familiar no elimina la obligación fiscal: se trata de una operación económica habitual de un profesional.</p>
+<hr>
+<h2 id="%F0%9F%93%8C-3-%C2%BFdebes-tributar-t%C3%BA-por-recibirlo-como-regalo">📌 3) ¿Debes tributar tú por recibirlo como regalo?</h2>
+<p>Sí. Una vez recibes la pieza o las piezas como donación, se considera que has obtenido un aumento de patrimonio sin contraprestación, por lo que está sujeto al:</p>
+<h3 id="%F0%9F%AA%AA-impuesto-de-sucesiones-y-donaciones-isd">🪪 Impuesto de Sucesiones y Donaciones (ISD)</h3>
+<ul>
+<li>
+<p>Debes presentar el modelo correspondiente a Donaciones (por ejemplo, el modelo 651 de tu comunidad autónoma o el que te indique la autoridad fiscal local).</p>
+</li>
+<li>
+<p>En ese impuesto, se declara el valor total de las piezas que te han regalado.</p>
+</li>
+<li>
+<p>El impuesto se calcula según tu comunidad autónoma (Localidad en tu caso), el valor de la donación y el grado de parentesco.</p>
+<ul>
+<li>En muchas CCAA hay reducciones importantes para familiares directos (por ejemplo, padre‑hijo). Esto puede reducir mucho o incluso dejar en cero lo que debes pagar, dependiendo de tu situación y límites regionales.</li>
+</ul>
+</li>
+<li>
+<p>No existe un umbral mínimo legal exento: cualquier donación, por pequeña que sea, técnicamente debe declararse.</p>
+</li>
+</ul>
+<p>👉 En la práctica, Hacienda suele inspeccionar con especial interés las donaciones de objetos de alto valor (joyas incluidas) y movimientos financieros significativos.</p>
+<hr>
+<h2 id="%F0%9F%93%8C-4-%C2%BFnecesitas-escritura-notarial">📌 4) ¿Necesitas escritura notarial?</h2>
+<p>No necesariamente siempre, pero para regalos relevantes (especialmente si el valor total es alto o puede generar dudas sobre su origen o valor), es recomendable formalizar una donación ante notario o al menos dejar constancia por escrito (contrato/acta de donación privada firmada por ambos).</p>
+<p>Esto te ayuda a:</p>
+<ul>
+<li>
+<p>Acreditar ante Hacienda que fue una donación.</p>
+</li>
+<li>
+<p>Fijar claramente valor jurídico y económico de la donación.</p>
+</li>
+<li>
+<p>Evitar problemas si en el futuro se revisa tu fiscalidad.</p>
+</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%93%8C-5-valoraci%C3%B3n-y-documentaci%C3%B3n">📌 5) Valoración y documentación</h2>
+<p>Al presentar la donación, deberás aportar documentación que respalde:</p>
+<ul>
+<li>
+<p>Factura de tu prima con detalle y valor.</p>
+</li>
+<li>
+<p>Fotos/fichas técnicas de las piezas.</p>
+</li>
+<li>
+<p>Si son piezas desmontables de valor concreto (500€ cada una), indica cómo has fijado ese valor.</p>
+</li>
+<li>
+<p>Documentación personal tuya y de tu prima (NIF, domicilio, parentesco).</p>
+</li>
+<li>
+<p>Contrato escrito de donación firmado por ambos.</p>
+</li>
+</ul>
+<p>Una valoración adecuada evita problemas de valoración arbitraria por parte de Hacienda.</p>
+<hr>
+<h2 id="%F0%9F%A7%BE-6-obligaciones-y-plazos-importantes">🧾 6) Obligaciones y plazos importantes</h2>
+<p>📍 Plazo de declaración<br>
+Generalmente, en España hay un plazo (p. ej., 30 días hábiles) desde que se recibe la donación para presentarla ante la oficina fiscal de tu comunidad y declarar el ISD. Revisa el plazo específico para Localidad o consulta con un asesor fiscal.</p>
+<p>📍 Pagos y tasas<br>
+Puede haber tasas regionales por tramitación del impuesto y posibles recargos si se presenta fuera de plazo.</p>
+<p>📍 Declaración en IRPF<br>
+Recibir una donación no suele generar una ganancia patrimonial directa en IRPF, pero sí podría influir en tu declaración dependiendo de tu patrimonio total.</p>
+<hr>
+<h2 id="%F0%9F%A7%91%E2%80%8D%E2%9A%96%EF%B8%8F-7-consejos-pr%C3%A1cticos">🧑‍⚖️ 7) Consejos prácticos</h2>
+<p>✅ Consulta con un asesor fiscal/gestor en Localidad antes de formalizar todo, así adaptas tu proceso a las normativas autonómicas concretas y a tus circunstancias familiares.<br>
+✅ Formaliza todo contrato de obra y de donación antes de pagar o entregar la pieza.<br>
+✅ No intentes &quot;evitar&quot; declararlo por ser familiar: técnicamente es una donación y Hacienda puede inspeccionar hasta 4 años atrás si detecta señales de no declaración.</p>
+<hr>
+<h2 id="%F0%9F%93%8C-resumen-de-pasos">📌 Resumen de pasos</h2>
+<ol>
+<li>
+<p>Tu prima factura la joya correctamente con IVA.</p>
+</li>
+<li>
+<p>Tú pagas y recibes la joya.</p>
+</li>
+<li>
+<p>Redactáis un contrato de donación (privado o ante notario).</p>
+</li>
+<li>
+<p>Declaras el regalo en el Impuesto de Sucesiones y Donaciones en Localidad.</p>
+</li>
+<li>
+<p>Pagas el impuesto (si corresponde) o aplicas reducciones por parentesco.</p>
+</li>
+<li>
+<p>Conserva toda la documentación por al menos 5 años.</p>
+</li>
+</ol>
+<hr>
+<p>Si quieres, puedo prepararte un borrador de contrato de donación y modelo de carta para notario adaptado exactamente a tu caso (detalle de las piezas, valores, etc.). ¿Quieres eso?</p>
+<p>De acuerdo y ahora para fijar el valor de cada pieza, entiendo que hay que sumar todos los costes: a) materia prima, oro (donde residirá el valor fundamental) b) coste de la joyera, c) impuestos</p>
+<p>Exacto, lo estás planteando correctamente, pero conviene desglosarlo paso a paso para que el valor declarado sea sólido y no genere dudas ante Hacienda. Para cada pieza de tu pulsera/rosario, el cálculo del valor unitario debería incluir:</p>
+<hr>
+<h2 id="1%EF%B8%8F%E2%83%A3-materia-prima">1️⃣ Materia prima</h2>
+<ul>
+<li>
+<p>Oro o metal precioso: el valor base suele ser el precio de mercado al momento de la compra, ponderado por el peso de oro en gramos o quilates.</p>
+</li>
+<li>
+<p>Otros materiales: gemas, piedras, hilos, cierres, etc. Cada uno con su coste de adquisición.</p>
+</li>
+<li>
+<p>Certificaciones y procedencia: si es oro ecoresponsable, incluye facturas de compra o certificados de la trazabilidad. Esto respalda el valor ante Hacienda.</p>
+</li>
+</ul>
+<p>💡 Tip: Hacienda valora mucho que el oro tenga documentación de compra profesional, especialmente si es una donación.</p>
+<hr>
+<h2 id="2%EF%B8%8F%E2%83%A3-mano-de-obra--dise%C3%B1o-de-la-joyera">2️⃣ Mano de obra / diseño de la joyera</h2>
+<ul>
+<li>
+<p>Incluye horas de trabajo, complejidad del diseño y técnicas especiales.</p>
+</li>
+<li>
+<p>La prima, como autónoma, puede basarse en su tarifa profesional o precio habitual de mercado para piezas similares.</p>
+</li>
+<li>
+<p>Este coste se suma al de la materia prima para reflejar el valor real de producción.</p>
+</li>
+</ul>
+<hr>
+<h2 id="3%EF%B8%8F%E2%83%A3-impuestos">3️⃣ Impuestos</h2>
+<ul>
+<li>
+<p>IVA: si la joya se factura con IVA, este no se considera valor de la pieza para efectos de donación, porque es un impuesto que ella repercute y tú pagas.</p>
+</li>
+<li>
+<p>Donación: cuando declares el ISD, el valor base suele ser el precio de factura sin IVA, porque es lo que constituye tu aumento patrimonial real.</p>
+</li>
+</ul>
+<p>💡 Resumen: para el valor de la pieza ante Hacienda se usan materia prima + coste de joyera (mano de obra y diseño), pero no el IVA, aunque sí es parte del gasto que tú pagas al adquirirla.</p>
+<hr>
+<h2 id="4%EF%B8%8F%E2%83%A3-ejemplo-pr%C3%A1ctico">4️⃣ Ejemplo práctico</h2>
+<p>Supongamos que cada pieza tiene:</p>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Coste (€)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Oro (3 g × 50€/g)</td>
+<td>150</td>
+</tr>
+<tr>
+<td>Gemas / otros materiales</td>
+<td>50</td>
+</tr>
+<tr>
+<td>Mano de obra / diseño</td>
+<td>300</td>
+</tr>
+<tr>
+<td>Subtotal (valor unitario)</td>
+<td>500</td>
+</tr>
+<tr>
+<td>IVA 21 % (pagado a la joyera)</td>
+<td>105</td>
+</tr>
+<tr>
+<td>Precio total pagado</td>
+<td>605</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Para declarar el ISD, el valor unitario de 500€ es el relevante.</p>
+</li>
+<li>
+<p>Para tu factura pagas 605€, que incluye IVA.</p>
+</li>
+</ul>
+<hr>
+<p>Si quieres, puedo hacer un modelo de tabla para tus 24 piezas, donde calcules cada pieza individualmente y el valor total de la donación, listo para presentar a Hacienda. Esto evita errores y deja todo documentado.</p>
+<p>¿Quieres que haga eso?</p>
+<p>Si, pero la tabla tiene que dejar el coste de la mano de obra diseño como incoginita porque será la joyera la que resuelva esa variable</p>
+<p>Perfecto, podemos armar una tabla de valoración de las piezas donde solo se deje como incógnita el coste de mano de obra/diseño, y así tú solo fijas la materia prima y el valor total estimado por pieza (500 €), dejando que tu prima ajuste la parte que le corresponde. Esto servirá para declarar la donación ante Hacienda sin comprometer la negociación profesional.</p>
+<p>Aquí tienes un modelo:</p>
+<table>
+<thead>
+<tr>
+<th>Pieza</th>
+<th>Materia prima (oro + piedras) (€)</th>
+<th>Mano de obra / diseño (€)</th>
+<th>Valor unitario estimado (€)</th>
+<th>IVA (21 %) (€)</th>
+<th>Precio total pagado (€)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>200</td>
+<td>X</td>
+<td>500</td>
+<td>105</td>
+<td>605 + X</td>
+</tr>
+<tr>
+<td>2</td>
+<td>200</td>
+<td>X</td>
+<td>500</td>
+<td>105</td>
+<td>605 + X</td>
+</tr>
+<tr>
+<td>3</td>
+<td>200</td>
+<td>X</td>
+<td>500</td>
+<td>105</td>
+<td>605 + X</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>500</td>
+<td>105</td>
+<td>605 + X</td>
+</tr>
+<tr>
+<td>24</td>
+<td>200</td>
+<td>X</td>
+<td>500</td>
+<td>105</td>
+<td>605 + X</td>
+</tr>
+</tbody>
+</table>
+<p>Notas importantes:</p>
+<ol>
+<li>
+<p>Materia prima: incluye oro ecoresponsable y otras piedras o elementos.</p>
+</li>
+<li>
+<p>Mano de obra / diseño (X): tu prima definirá este coste según su tarifa profesional.</p>
+</li>
+<li>
+<p>Valor unitario estimado (500 €): es el valor que se declarará ante Hacienda para cada pieza de la donación (sin IVA).</p>
+</li>
+<li>
+<p>Precio total pagado: el importe que tú efectivamente abonas a la joyera incluirá el IVA y su coste de mano de obra final.</p>
+</li>
+<li>
+<p>Flexibilidad: puedes ajustar la tabla si algunas piezas son más complejas y pesan más en oro u otros materiales.</p>
+</li>
+</ol>
+<hr>
+<p>Si quieres, puedo prepararte una versión lista para Hacienda, con las 24 piezas ya enumeradas y un formato de resumen total de donación, que te serviría para declarar todo en un único documento formal.</p>
+<p>¿Quieres que haga eso?</p>
+<p>qué pasa si se hace como prestamo y la otra persona nunca llega a poder devolverlo?</p>
+<p>Ah, eso cambia completamente la naturaleza de la operación. Si en vez de donación hablamos de un préstamo, hay varias implicaciones legales y fiscales importantes:</p>
+<hr>
+<h2 id="1%EF%B8%8F%E2%83%A3-diferencia-clave-donaci%C3%B3n-vs-pr%C3%A9stamo">1️⃣ Diferencia clave: donación vs préstamo</h2>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Donación</th>
+<th>Préstamo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naturaleza</td>
+<td>Transferencia gratuita de bienes</td>
+<td>Obligación de devolución</td>
+</tr>
+<tr>
+<td>Obligación legal</td>
+<td>Ninguna de devolver</td>
+<td>Sí, el receptor debe devolver el capital</td>
+</tr>
+<tr>
+<td>Impuesto</td>
+<td>Impuesto sobre Sucesiones y Donaciones</td>
+<td>No hay ISD si es préstamo, pero intereses tributan</td>
+</tr>
+<tr>
+<td>Riesgo</td>
+<td>Para el donante, pierde el bien</td>
+<td>Para el prestamista, riesgo de impago</td>
+</tr>
+</tbody>
+</table>
+<p>💡 Si lo presentas como préstamo, Hacienda no considera que haya aumento patrimonial inmediato (no hay ISD), pero:</p>
+<ul>
+<li>
+<p>El dinero que recibas como interés por el préstamo tributa en IRPF como rendimiento del capital mobiliario.</p>
+</li>
+<li>
+<p>Si el préstamo no se devuelve, puedes intentar reclamar judicialmente, pero puede ser costoso y complicado.</p>
+</li>
+</ul>
+<hr>
+<h2 id="2%EF%B8%8F%E2%83%A3-qu%C3%A9-ocurre-si-no-se-devuelve">2️⃣ Qué ocurre si no se devuelve</h2>
+<ul>
+<li>
+<p>El préstamo se convierte en una deuda incobrable.</p>
+</li>
+<li>
+<p>Fiscalmente, si intentas deducir la pérdida, Hacienda suele exigir documentación sólida: contrato de préstamo, pruebas de reclamación, comunicación con el deudor.</p>
+</li>
+<li>
+<p>Legalmente, tendrías que demandar al deudor para recuperar tu dinero.</p>
+</li>
+<li>
+<p>Si el deudor es familiar cercano y no hay contrato claro, es muy fácil que el tribunal considere que en realidad era un regalo encubierto. Esto puede revertir la intención original.</p>
+</li>
+</ul>
+<hr>
+<h2 id="3%EF%B8%8F%E2%83%A3-recomendaci%C3%B3n-pr%C3%A1ctica">3️⃣ Recomendación práctica</h2>
+<p>Si tu objetivo es que la otra persona pueda &quot;gestionar&quot; la pulsera o rosario y gastar o conservar piezas:</p>
+<ul>
+<li>
+<p>No uses un préstamo. Esto genera obligaciones legales difíciles de manejar y riesgo fiscal si nunca se devuelve.</p>
+</li>
+<li>
+<p>Lo más limpio es una donación, con contrato claro o acta notarial, y declarar el valor a Hacienda.</p>
+</li>
+<li>
+<p>Puedes establecer reglas de &quot;gestión de piezas&quot; dentro del contrato de donación: por ejemplo, que pueda usar piezas y que haya opción de recuperación o reposición, sin implicar devolución de dinero. Esto respeta la naturaleza de la donación y evita problemas legales y fiscales.</p>
+</li>
+</ul>
+<hr>
+<p>Si quieres, puedo hacer un modelo de contrato de donación con &quot;gestión flexible de piezas&quot;, que legalmente sea un regalo pero permita que tu prestatario use, quite o reponga piezas según su vida, sin riesgos de préstamo impagable.</p>
+<p>¿Quieres que haga eso?</p>
+<p>O sea, la otra persona está en la banca rota, y creo lo tiene muy dificil para recuperarse. Pero quizas esto le ayude. Quisiera hacerlo a interes 0%. Sabiendo que solo recuperaré si la persona logra salir de la cota-umbral-pobreza. Entonces sí podrá devolver</p>
+<p>Ah, entiendo mejor la situación. Si quieres ayudar a alguien en cota-umbral-pobreza y planteas un préstamo a interés 0%, con la posibilidad de que solo devuelva si logra recuperarse financieramente, la operación se vuelve delicada, pero se puede hacer legalmente si sigues ciertas reglas. Vamos a desglosarlo:</p>
+<hr>
+<h2 id="1%EF%B8%8F%E2%83%A3-pr%C3%A9stamo-a-inter%C3%A9s-0">1️⃣ Préstamo a interés 0%</h2>
+<ul>
+<li>
+<p>Legalmente es posible otorgar un préstamo sin intereses. No estás obligado a generar rentabilidad.</p>
+</li>
+<li>
+<p>Para Hacienda, se considera un préstamo entre particulares: no hay aumento patrimonial inmediato, por lo que no tributa como donación ni IRPF en el momento de entrega del dinero o la joya.</p>
+</li>
+<li>
+<p>Si hubiera intereses, estos tributarían en tu IRPF como rendimiento del capital mobiliario, pero a interés 0%, no hay rendimientos que declarar.</p>
+</li>
+</ul>
+<hr>
+<h2 id="2%EF%B8%8F%E2%83%A3-riesgo-de-impago">2️⃣ Riesgo de impago</h2>
+<ul>
+<li>
+<p>La persona está en cota-umbral-pobreza, así que puede que nunca devuelva el préstamo.</p>
+</li>
+<li>
+<p>Legalmente, seguirías pudiendo reclamar la devolución cuando su situación mejore, pero:</p>
+<ul>
+<li>
+<p>Debes documentarlo por escrito, dejando constancia de que la devolución depende de su capacidad financiera.</p>
+</li>
+<li>
+<p>Hacienda puede interpretar que, si nunca se devuelve, en realidad fue un regalo encubierto, especialmente si no hay pruebas de intención de devolución.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3%EF%B8%8F%E2%83%A3-c%C3%B3mo-proteger-la-operaci%C3%B3n">3️⃣ Cómo proteger la operación</h2>
+<p>Para que sea válido y defendible:</p>
+<ol>
+<li>
+<p>Contrato de préstamo formal:</p>
+<ul>
+<li>
+<p>Indicar claramente cantidad prestada (o valor de la joya/piezas).</p>
+</li>
+<li>
+<p>Indicar que el interés es 0%.</p>
+</li>
+<li>
+<p>Especificar que la devolución solo se exigirá si el prestatario logra superar su situación de cota-umbral-pobreza o según condiciones objetivas de recuperación.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Documentación adicional:</p>
+<ul>
+<li>
+<p>Copia de tu identificación y la de la otra persona.</p>
+</li>
+<li>
+<p>Prueba del estado de cota-umbral-pobreza, si la tiene, para justificar que la devolución depende de recuperación.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Opcional: firmar ante notario, lo que da más seguridad jurídica y evidencia clara ante Hacienda o tribunales.</p>
+</li>
+</ol>
+<hr>
+<h2 id="4%EF%B8%8F%E2%83%A3-riesgo-fiscal-y-pr%C3%A1ctico">4️⃣ Riesgo fiscal y práctico</h2>
+<ul>
+<li>
+<p>Hacienda no verá ingresos hasta que el préstamo se devuelva.</p>
+</li>
+<li>
+<p>Si nunca se devuelve, el préstamo podría interpretarse como una donación encubierta, lo que activaría ISD a efectos de la otra persona.</p>
+</li>
+<li>
+<p>Sin embargo, si documentas bien la intención de préstamo y la condición de devolución, es difícil que Hacienda lo cuestione, sobre todo si hay prueba de cota-umbral-pobreza.</p>
+</li>
+</ul>
+<hr>
+<p>✅ Resumen:</p>
+<ul>
+<li>
+<p>Puedes hacer un préstamo a interés 0% a alguien en cota-umbral-pobreza.</p>
+</li>
+<li>
+<p>Necesitas documentarlo bien y definir condiciones claras de devolución.</p>
+</li>
+<li>
+<p>Existe riesgo de que nunca recuperes tu inversión, y fiscalmente puede interpretarse como donación si no hay evidencia de intención de devolución.</p>
+</li>
+</ul>
+<hr>
+<p>Si quieres, puedo prepararte un modelo de contrato de préstamo a interés 0% condicionado a recuperación financiera, que cubra la joya/piezas, sea defendible legalmente y deje constancia de la intención de devolución solo si la persona logra recuperarse.</p>
+<p>¿Quieres que haga ese modelo?</p>
+<p>si</p>
+<p>Perfecto. Vamos a armar un modelo de contrato de préstamo a interés 0% condicionado a recuperación financiera, adaptado a tu caso: la entrega de una joya/pulsera con piezas valoradas y la posibilidad de que tu prestatario solo devuelva si logra superar la cota-umbral-pobreza. Te doy un borrador listo para uso formal que puedes adaptar y, si quieres, luego firmar ante notario.</p>
+<hr>
+<h1 id="contrato-de-pr%C3%A9stamo-a-inter%C3%A9s-0-condicionado-a-recuperaci%C3%B3n-financiera">Contrato de Préstamo a Interés 0% Condicionado a Recuperación Financiera</h1>
+<p>Entre:</p>
+<p>Prestamista: [Tu nombre completo], con DNI/NIE [], con domicilio en [].</p>
+<p>Prestatario: [Nombre completo del destinatario], con DNI/NIE [], con domicilio en [], actualmente en situación de insolvencia/cota-umbral-pobreza según [documentación acreditativa, si procede].</p>
+<p>Objeto del contrato:</p>
+<p>El prestamista entrega al prestatario, en calidad de préstamo personal, la joya/pulsera descrita a continuación:</p>
+<ul>
+<li>
+<p>Descripción: Pulsera/rosario con un máximo de 24 piezas de valor unitario aproximado de 500 € cada una, hechas por la joyera [nombre de la prima], factura N.º [____], emitida el [fecha].</p>
+</li>
+<li>
+<p>Valor total estimado: [X €] (sin incluir IVA).</p>
+</li>
+</ul>
+<p>Condiciones del préstamo:</p>
+<ol>
+<li>
+<p>Monto y entrega: El prestamista entrega la joya/pulsera al prestatario en la fecha [____].</p>
+</li>
+<li>
+<p>Interés: Este préstamo se otorga a interés 0%; el prestatario no generará obligación de pago adicional por concepto de intereses.</p>
+</li>
+<li>
+<p>Condición de devolución:</p>
+<ul>
+<li>
+<p>El prestatario se compromete a devolver la joya/pulsera o el valor monetario equivalente únicamente si logra superar su situación de cota-umbral-pobreza y dispone de medios financieros suficientes para hacerlo.</p>
+</li>
+<li>
+<p>Hasta entonces, el préstamo se considerará en suspenso y no habrá obligación de devolución inmediata.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Forma de devolución: En caso de que el prestatario recupere su capacidad económica, la devolución se hará mediante [entrega de la joya/pulsera, reintegro monetario, u otro método acordado], dentro de un plazo máximo de [____] días tras la recuperación financiera.</p>
+</li>
+<li>
+<p>Obligaciones del prestatario: Mantener la joya/pulsera en buen estado, evitando su deterioro intencional.</p>
+</li>
+<li>
+<p>Incumplimiento: Si el prestatario recupera su solvencia y se niega a devolver el préstamo, el prestamista podrá iniciar acciones legales para reclamarlo, debiendo aportarse documentación de recuperación financiera y reclamación previa.</p>
+</li>
+<li>
+<p>Documentación: Se adjunta copia de la factura de la joyera y documentación acreditativa de la situación de cota-umbral-pobreza del prestatario.</p>
+</li>
+</ol>
+<p>Jurisdicción: Este contrato se rige por las leyes españolas y cualquier disputa será resuelta por los tribunales de [ciudad/municipio].</p>
+<p>Firmas:</p>
+<hr>
+<p>[Prestamista]</p>
+<hr>
+<p>[Prestatario]</p>
+<p>Fecha: [____]</p>
+<hr>
+<h3 id="%E2%9C%85-notas-importantes">✅ Notas importantes:</h3>
+<ol>
+<li>
+<p>Puedes adjuntar fotos de la joya/pulsera y descripción de cada pieza como anexo, para mayor claridad ante Hacienda o notario.</p>
+</li>
+<li>
+<p>Aunque no hay intereses ni obligación inmediata de devolución, documentar la intención de préstamo es crucial para que Hacienda no lo interprete como donación encubierta.</p>
+</li>
+<li>
+<p>Puedes firmarlo ante notario para darle máxima seguridad jurídica.</p>
+</li>
+</ol>
+<hr>
+<p>Si quieres, puedo hacer una versión más detallada tipo &quot;anexo técnico de las piezas&quot;, donde cada una de las 24 piezas aparece con su valor unitario y la incógnita de la mano de obra/diseño, lista para entregar como parte del contrato. Esto deja todo muy profesional y defendible legalmente.</p>
+<p>¿Quieres que haga ese anexo?</p>
+<p>Una pregunta, y la otra persona puede ir devolviendo pieza a pieza, o tiene que devolver en oro?</p>
+<p>Sí, puede devolverte pieza a pieza, no necesariamente en oro líquido o dinero, siempre que quede claramente acordado en el contrato cómo se hará la devolución.</p>
+<p>Esto tiene varias implicaciones legales y fiscales:</p>
+<hr>
+<h2 id="1%EF%B8%8F%E2%83%A3-devoluci%C3%B3n-en-especie-pieza-a-pieza">1️⃣ Devolución en especie (pieza a pieza)</h2>
+<ul>
+<li>
+<p>Cada pieza de la pulsera/rosario puede contarse como unidad de valor.</p>
+</li>
+<li>
+<p>Puedes acordar que el prestatario devuelva las piezas concretas que fueron entregadas, una por una, según su capacidad.</p>
+</li>
+<li>
+<p>Esto se ajusta perfectamente a tu situación de préstamo a interés 0%, condicionado a recuperación: no obliga a devolver todo de golpe.</p>
+</li>
+</ul>
+<hr>
+<h2 id="2%EF%B8%8F%E2%83%A3-c%C3%B3mo-documentarlo">2️⃣ Cómo documentarlo</h2>
+<p>En el contrato conviene incluir:</p>
+<ol>
+<li>
+<p>Que la devolución puede ser parcial, indicando que cada pieza cuenta como una parte proporcional del préstamo.</p>
+</li>
+<li>
+<p>Que el prestamista registrará la recepción de cada pieza mediante acta, firma o foto, para dejar constancia legal.</p>
+</li>
+<li>
+<p>Que las piezas entregadas primero se consideran primero devueltas, o un orden específico si quieres evitar disputas.</p>
+</li>
+</ol>
+<p>Ejemplo de cláusula que puedes añadir al contrato:</p>
+<blockquote>
+<p><em>&quot;La devolución del préstamo podrá realizarse en especie, pieza por pieza. Cada pieza entregada se considerará parte proporcional del total del préstamo. El prestatario deberá entregar las piezas en buen estado, y el prestamista dejará constancia de la recepción de cada una mediante firma o acta.&quot;</em></p>
+</blockquote>
+<hr>
+<h2 id="3%EF%B8%8F%E2%83%A3-alternativa-equivalencia-monetaria">3️⃣ Alternativa: equivalencia monetaria</h2>
+<ul>
+<li>
+<p>Si en algún momento el prestatario no puede devolver piezas exactas, también puedes acordar que entregue el valor económico equivalente en dinero.</p>
+</li>
+<li>
+<p>Esto mantiene la flexibilidad y protege tus derechos como prestamista.</p>
+</li>
+</ul>
+<hr>
+<p>✅ Resumen:</p>
+<ul>
+<li>
+<p>La devolución no tiene que ser en oro fundido, puede ser pieza por pieza.</p>
+</li>
+<li>
+<p>Es crucial documentarlo claramente en el contrato y registrar cada devolución.</p>
+</li>
+<li>
+<p>Esto te protege y mantiene la operación dentro del marco legal, sin convertirla en una donación encubierta.</p>
+</li>
+</ul>
+<hr>
+<p>Si quieres, puedo revisar tu contrato actual y añadir una cláusula completa de devolución parcial pieza a pieza, lista para firmar. Esto dejaría todo profesional y defendible ante Hacienda o notario.</p>
+<p>¿Quieres que haga eso?</p>
+
+</body>
+</html>
