@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+
+/* ── reset ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  color: #000;
+  background: #fff;
+  line-height: 1.65;
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  font-size: 15px;
+}
+
+/* ── handwriting ── */
+.hand {
+  font-family: 'Caveat', cursive;
+  font-size: 1.4em;
+  line-height: 1.35;
+}
+
+/* ── header ── */
+header.site-header {
+  border: 2px solid #000;
+  padding: 2.5rem 2rem 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+header.site-header h1 {
+  font-size: 0.95rem;
+  font-weight: normal;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+header.site-header .sub {
+  font-family: 'Caveat', cursive;
+  font-size: 1.55rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+header.site-header .meta {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+header.site-header .meta a { color: #000; }
+
+/* ── nav (table of contents / breadcrumb) ── */
+nav.toc {
+  font-size: 0.8rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #000;
+}
+nav.toc ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; }
+nav.toc a {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+  padding-bottom: 1px;
+}
+nav.toc a:hover { background: #000; color: #fff; }
+
+/* ── breadcrumb (sección individual) ── */
+nav.breadcrumb {
+  font-size: 0.78rem;
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed #000;
+}
+nav.breadcrumb a { color: #000; }
+nav.breadcrumb .sep { margin: 0 0.4rem; opacity: 0.4; }
+
+/* ── sections ── */
+section { margin-bottom: 3rem; }
+section > h2 {
+  font-size: 0.85rem;
+  font-weight: normal;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #000;
+}
+section > h2::before { content: '§ '; }
+
+h3 {
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 1.5rem 0 0.6rem;
+}
+
+p { margin-bottom: 0.9rem; font-size: 0.88rem; }
+
+/* ── links ── */
+a { color: #000; }
+a:hover { background: #000; color: #fff; text-decoration: none; }
+
+.src-link {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border: 1px solid #000;
+  padding: 0.15rem 0.5rem;
+  display: inline-block;
+  margin: 0.15rem 0.15rem 0.15rem 0;
+}
+.src-link:hover { background: #000; color: #fff; }
+
+/* ── pre / code ── */
+pre {
+  border: 1px solid #000;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  margin: 1rem 0;
+}
+code { font-family: inherit; }
+
+/* ── inverted block ── */
+.inv {
+  background: #000;
+  color: #fff;
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
+}
+.inv a { color: #fff; }
+.inv a:hover { background: #fff; color: #000; }
+
+/* ── blockquote (handwriting) ── */
+blockquote {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  line-height: 1.35;
+  padding: 0.75rem 0 0.75rem 1.25rem;
+  border-left: 3px solid #000;
+  margin: 1.25rem 0;
+}
+
+/* ── tables ── */
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.8rem; }
+th, td { border: 1px solid #000; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+th {
+  background: #000; color: #fff;
+  font-weight: normal; text-transform: uppercase; letter-spacing: 0.08em;
+}
+
+/* ── mod cards ── */
+.mod-card {
+  border: 2px solid #000;
+  margin: 1.5rem 0;
+}
+.mod-card .mod-head {
+  background: #000;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+}
+.mod-card .mod-head h3 { color: #fff; margin: 0; font-size: 0.85rem; }
+.mod-card .mod-head .mod-branch {
+  font-size: 0.7rem; font-weight: normal; opacity: 0.7;
+}
+.mod-card .mod-body { padding: 1.25rem; }
+.mod-card .mod-body p { font-size: 0.85rem; }
+.mod-card .mod-links {
+  display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.75rem;
+}
+
+/* ── dry comparison ── */
+.dry-cols {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; margin: 1rem 0; border: 1px solid #000;
+}
+.dry-col { padding: 1rem; font-size: 0.75rem; line-height: 1.6; }
+.dry-col:first-child { border-right: 1px solid #000; }
+.dry-col h4 {
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;
+  margin-bottom: 0.5rem; font-weight: normal;
+  border-bottom: 1px dashed #000; padding-bottom: 0.3rem;
+}
+.dry-col .inherited { opacity: 0.4; }
+.dry-col .nuevo { font-weight: bold; }
+
+/* ── separator ── */
+hr { border: none; border-top: 1px dashed #000; margin: 2rem 0; }
+
+/* ── footer ── */
+footer {
+  margin-top: 3.5rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid #000;
+  text-align: center;
+  font-size: 0.75rem;
+}
+footer .hand { display: block; margin-bottom: 0.4rem; font-size: 1.5rem; }
+
+/* ── utility ── */
+.small { font-size: 0.75rem; }
+
+/* ── responsive ── */
+@media (max-width: 600px) {
+  body { padding: 1rem; font-size: 14px; }
+  header.site-header { padding: 1.5rem 1rem; }
+  pre { font-size: 0.7rem; padding: 0.75rem; }
+  .dry-cols { grid-template-columns: 1fr; }
+  .dry-col:first-child { border-right: none; border-bottom: 1px solid #000; }
+  nav.toc ul { gap: 0.3rem 0.8rem; }
+}
+
+/* ── print ── */
+@media print {
+  body { max-width: 100%; padding: 1cm; }
+  .inv { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  nav.toc, nav.breadcrumb { display: none; }
+}
