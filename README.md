@@ -4,6 +4,8 @@
 > ética — desde la comisión del activo hasta su seguimiento y resolución legal.
 > Raíz de la rama `main`. Los mods específicos residen en sus propias ramas (`mods/*`).
 
+**Exordio — por qué existe este SDK:** [`sdk/lore.md`](sdk/lore.md)
+
 ---
 
 ## El doble eje
@@ -22,6 +24,7 @@ Para el desarrollo conceptual completo: `sdk/concepto.md`.
 
 ```
 sdk/
+  lore.md                           ← Exordio editorial desde escrivivir.co
   concepto.md                       ← El doble eje fundamentado
   framework-5-fases.md              ← Las 5 fases operativas genéricas
   escenarios.md                     ← Los 4 escenarios de devolución
