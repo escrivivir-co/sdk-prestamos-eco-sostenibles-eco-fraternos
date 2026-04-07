@@ -11,6 +11,9 @@
 ## Identidad
 
 ```yaml
+extends: "sdk/config.template.md"
+sdk-base: "main"
+mod: "oro"
 nombre: "Inversión en oro/arte «Eco-sostenible y eco-fraterno»"
 descripcion: |
   Proyecto de doble eje: (a) eco-sostenible — el oro como motor ético de
@@ -205,41 +208,54 @@ tensiones:
 
 ```yaml
 descripcion: "Material de origen: sesión de consulta legal-fiscal sobre donación/préstamo de joyería en oro, con derivación ensayística sobre la paz, el nosotros y los cinco poderes. Carpeta de proyecto con bitácoras, cuadernillos y referencia de oro ecoresponsable."
-rutas:
-  - ruta: "PROYECTOS/PLAN_ORO/README.md"
-    nombre: "Portada y relato operativo"
-    descripcion: "Puerta de entrada DRY: ejes eco-sostenible y eco-fraterno, 3 entregables, las 5 fases, los 4 escenarios, los 3 objetivos"
-  - ruta: "PROYECTOS/PLAN_ORO/bitacora-fase-1.md"
+sdk-base:
+  - ruta: "sdk/concepto.md"
+    nombre: "Concepto: doble eje"
+  - ruta: "sdk/framework-5-fases.md"
+    nombre: "Framework operativo"
+  - ruta: "sdk/escenarios.md"
+    nombre: "Cuatro escenarios"
+  - ruta: "sdk/legal/clausulas-base.md"
+    nombre: "Cuatro cláusulas base"
+  - ruta: "sdk/legal/estructura-fiscal.md"
+    nombre: "Triángulo fiscal"
+  - ruta: "sdk/cadena-etica/criterios.md"
+    nombre: "Criterios de cadena ética"
+mod-especifico:
+  - ruta: "mod-oro/README.md"
+    nombre: "Portada y relato operativo del mod"
+    descripcion: "Puerta de entrada: ejes eco-sostenible y eco-fraterno, 3 entregables, las 5 fases, los 4 escenarios, los 3 objetivos"
+  - ruta: "mod-oro/bitacoras/bitacora-fase-1.md"
     nombre: "Bitácora Fase 1: Encargar la pieza"
     descripcion: "Registro operativo: contacto joyera, definición encargo, selección oro, condiciones económicas, plazos"
-  - ruta: "PROYECTOS/PLAN_ORO/bitacora-fase-2.md"
+  - ruta: "mod-oro/bitacoras/bitacora-fase-2.md"
     nombre: "Bitácora Fase 2: Legalizar la pieza"
     descripcion: "Registro operativo: factura, anexo técnico con tabla de módulos, fotografías, tasación"
-  - ruta: "PROYECTOS/PLAN_ORO/bitacora-fase-3.md"
+  - ruta: "mod-oro/bitacoras/bitacora-fase-3.md"
     nombre: "Bitácora Fase 3: Encargar el papeleo"
     descripcion: "Registro operativo: redacción contrato, cláusulas, documentación insolvencia, formalización"
-  - ruta: "PROYECTOS/PLAN_ORO/bitacora-fase-4.md"
+  - ruta: "mod-oro/bitacoras/bitacora-fase-4.md"
     nombre: "Bitácora Fase 4: Ceremonia de entrega"
     descripcion: "Registro operativo: lugar, entrega pieza, firma contrato, documentación al prestatario"
-  - ruta: "PROYECTOS/PLAN_ORO/bitacora-fase-5.md"
+  - ruta: "mod-oro/bitacoras/bitacora-fase-5.md"
     nombre: "Bitácora Fase 5: Legalizar + seguimiento retorno"
     descripcion: "Registro operativo: presentación Hacienda, triángulo fiscal, ventana inspección, registro devoluciones, escenario activo"
-  - ruta: "PROYECTOS/PLAN_ORO/cuadernillo-joyera.md"
+  - ruta: "mod-oro/roles/cuadernillo-joyera.md"
     nombre: "Cuadernillo para la joyera"
     descripcion: "Encargo, especificaciones técnicas, requisitos trazabilidad, obligaciones facturación"
-  - ruta: "PROYECTOS/PLAN_ORO/cuadernillo-prestamista.md"
+  - ruta: "mod-oro/roles/cuadernillo-prestamista.md"
     nombre: "Cuadernillo para el prestamista"
     descripcion: "Guía operativa: 5 fases en resumen, obligaciones fiscales, 4 cláusulas, escenarios, registro devoluciones, checklist archivo"
-  - ruta: "PROYECTOS/PLAN_ORO/oro-ecoresponsable-referencia.md"
+  - ruta: "mod-oro/cadena-etica/oro-ecoresponsable-referencia.md"
     nombre: "Pack oro ecoresponsable"
     descripcion: "Certificaciones (Fairmined, Fairtrade), proveedores europeos accesibles para joyero autónomo en España, países de origen con foco social, cadena extracción→taller, oro reciclado como complemento"
-  - ruta: "PROYECTOS/PLAN_ORO/cuaderno-receptor.md"
+  - ruta: "mod-oro/roles/cuaderno-receptor.md"
     nombre: "Cuaderno del receptor"
     descripcion: "Instrucciones para quien recibe la pieza: 4 opciones de uso, 5 vías de conversión a liquidez, circuito ético, papeles ante Hacienda, cuidado de la pieza"
-  - ruta: "plan-oro/plan-oro.md"
+  - ruta: "mod-oro/fuente/plan-oro.md"
     nombre: "Sesión original"
     descripcion: "Diálogo completo: guía legal-fiscal + ensayo sobre la paz, el nosotros asambleario, los 5 poderes, la IA como catalizador"
-  - ruta: "plan-oro/plan-oro_tmp.html"
+  - ruta: "mod-oro/fuente/plan-oro_tmp.html"
     nombre: "Versión HTML temporal"
     descripcion: "Renderizado del material original"
 indices:
@@ -253,7 +269,7 @@ indices:
     nombre: "Referencias"
     cubre: "Bibliografía y fuentes"
 output:
-  ruta: "PROYECTOS/PLAN_ORO/output/"
+  ruta: "mod-oro/output/"
   convencion: "pieza_NN_{slug}.md"
 ```
 
@@ -390,4 +406,12 @@ patrones-prohibidos:
   - Separar lo legal de lo ensayístico
   - Tono de consultoría fiscal
   - Emojis
+```
+
+---
+
+## Para invocar al agente sobre este mod
+
+```
+@{agente} MOD-ORO {tema}
 ```
