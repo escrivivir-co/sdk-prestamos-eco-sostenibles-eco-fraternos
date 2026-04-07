@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galería de mods — SDK eco-fraternos · escrivivir.co</title>
+  <meta name="description" content="Instanciaciones del SDK: cada mod adapta el protocolo de préstamo fraterno a un activo, jurisdicción y circunstancia específicos.">
+  <meta property="og:title" content="Galería de mods — SDK eco-fraternos">
+  <meta property="og:description" content="Instanciaciones del SDK: cada mod adapta el protocolo de préstamo fraterno a un activo, jurisdicción y circunstancia específicos.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://escrivivir-co.github.io/sdk-prestamos-eco-sostenibles-eco-fraternos/sections/galeria-mods.html">
+  <link rel="canonical" href="https://escrivivir-co.github.io/sdk-prestamos-eco-sostenibles-eco-fraternos/sections/galeria-mods.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>§</text></svg>">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════ HEADER -->
+  <header class="site-header">
+    <h1>SDK préstamos eco-sostenibles<br>y eco-fraternos</h1>
+    <span class="sub">galería de mods</span>
+    <span class="meta">
+      <a href="https://escrivivir.co">escrivivir.co</a> · animus iocandi ·
+      <a href="https://github.com/escrivivir-co/sdk-prestamos-eco-sostenibles-eco-fraternos">repositorio</a>
+    </span>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════ BREADCRUMB -->
+  <nav class="breadcrumb">
+    <a href="../index.html">inicio</a>
+    <span class="sep">›</span>
+    galería de mods
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════ INTRO -->
+  <section id="galeria-mods">
+    <h2>Mods</h2>
+
+    <p>
+      Un mod es una instanciación del SDK para un activo, jurisdicción
+      y circunstancia específicos. Reside en su propia rama
+      (<code>mods/{nombre}</code>) y añade un directorio
+      <code>mod-{nombre}/</code> encima de la base. Cada mod demuestra
+      que el protocolo no es una abstracción: es una herramienta que
+      funciona con materia concreta — sea oro, sea moneda digital,
+      sea lo que venga después.
+    </p>
+
+    <!-- @@CONTENIDO-START -->
+
+    <!-- ═══════════════════════════════════════════════ GALERÍA -->
+    <div class="gallery">
+
+      <!-- ── ORO ── -->
+      <div class="mod-card">
+        <a class="gallery-link" href="mod-oro.html">
+          <div class="mod-head">
+            <h3>Plan Oro <span class="mod-branch">mods/oro</span></h3>
+          </div>
+          <div class="mod-body">
+            <blockquote style="font-size:1rem;">
+              Sacralizar el dinero habida cuenta del albedo en la
+              historia de este metal precioso.
+            </blockquote>
+            <table>
+              <tr><th>Activo</th><td>Oro ecoresponsable — Fairmined</td></tr>
+              <tr><th>Proveedor</th><td>Joyera artesana</td></tr>
+              <tr><th>Jurisdicción</th><td>España</td></tr>
+              <tr><th>Estado</th><td>Activo — 5 fases</td></tr>
+            </table>
+          </div>
+        </a>
+      </div>
+
+      <!-- ── ECOIN ── -->
+      <div class="mod-card">
+        <a class="gallery-link" href="mod-ecoin.html">
+          <div class="mod-head">
+            <h3>ECOin <span class="mod-branch">mods/ecoin</span></h3>
+          </div>
+          <div class="mod-body">
+            <blockquote style="font-size:1rem;">
+              Un protocolo donde la riqueza puede decidir
+              desaparecer. La «fe» cambia de bando.
+            </blockquote>
+            <table>
+              <tr><th>Activo</th><td>ECOin — SCRYPT, GPLv3</td></tr>
+              <tr><th>Proveedor</th><td>Nodo SNH-KIT solar</td></tr>
+              <tr><th>Jurisdicción</th><td>Transjurisdiccional</td></tr>
+              <tr><th>Estado</th><td>Activo — 5 fases</td></tr>
+            </table>
+          </div>
+        </a>
+      </div>
+
+      <!-- @@GALLERY-MOD-END: para añadir un mod nuevo, copiar un bloque
+           .mod-card de arriba con gallery-link apuntando a mod-{nombre}.html
+      -->
+
+    </div>
+
+    <!-- @@CONTENIDO-END -->
+
+    <hr>
+
+    <h3>Crear un mod nuevo</h3>
+    <pre>$ git checkout -b mods/{nombre}            # rama desde main
+$ mkdir mod-{nombre}
+$ cp sdk/config.template.md \
+     mod-{nombre}/proyecto.config.md        # rellenar {{PLACEHOLDERS}}
+# instanciar plantillas de roles, bitácoras, contrato
+# crear referencia de cadena ética del activo
+# escribir mod-{nombre}/README.md</pre>
+    <a class="src-link"
+       href="https://github.com/escrivivir-co/sdk-prestamos-eco-sostenibles-eco-fraternos/blob/main/README.md"
+       >→ instrucciones completas en README</a>
+    <a class="src-link"
+       href="https://github.com/escrivivir-co/sdk-prestamos-eco-sostenibles-eco-fraternos/blob/main/sdk/config.template.md"
+       >→ config.template.md</a>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ FOOTER -->
+  <footer>
+    <span class="hand">animus iocandi</span>
+    <a href="https://escrivivir.co">escrivivir.co</a> ·
+    <a href="https://github.com/escrivivir-co/sdk-prestamos-eco-sostenibles-eco-fraternos">github</a> ·
+    <a href="../index.html">← inicio</a>
+    <br><br>
+    <span class="small">
+      La riqueza no opera como un jerarquizador de poder<br>
+      sino como un suelo de posibilidad.
+    </span>
+  </footer>
+
+</body>
+</html>
