@@ -1,82 +1,156 @@
-# Proyecto de inversión en oro/arte «Eco-sostenible y eco-fraterno»
+# SDK de préstamos eco-sostenibles y eco-fraternos
 
-> Un rosario secular de 24 piezas de oro ecoresponsable, formalizado como préstamo
-> a interés 0% entre hermanos. La materia preciosa como caldo energético
-> puede ir gastando o conservando según se vive.
-
----
-
-## Los dos ejes del proyecto
-
-**Eco-sostenible.** El oro como motor ético de riqueza a través de la artesana. Cada gramo que pasa por el taller de la prima joyera activa un circuito de tres capas: minería artesanal certificada (Fairmined/Fairtrade) → refinería con trazabilidad → manos de una autónoma que cobra por su oficio. El dinero no duerme en un depósito: circula, toca tierra, genera trabajo digno y tributa. La eco-sostenibilidad no es un adjetivo del oro: es la arquitectura del encargo.
-
-**Eco-fraterno.** El oro como reserva de riqueza que el prestatario puede *ignorar* (devolverlo), *custodiar* (mantener el rosario intacto como capital potencial, teóricamente, revalorizándolo por la propia naturaleza del oro), o *emplear* (liquidar piezas una a una según la vida lo exija). La relación del préstamo es de fraternidad: es infraestructura de agencia. Cada pieza que se gasta es una decisión soberana; cada pieza que se conserva es reserva de posibilidad. El préstamo a interés 0% con cláusula de revalorización invertida garantiza que la plusvalía no penaliza al deudor.
+> Framework documental para estructurar préstamos fraternos de bienes con cadena
+> ética — desde la comisión del activo hasta su seguimiento y resolución legal.
+> Raíz de la rama `main`. Los mods específicos residen en sus propias ramas (`mods/*`).
 
 ---
 
-## Tres entregables
+## El doble eje
 
-### 1. Vídeo inaugural
+Todo préstamo instanciado desde este SDK se sostiene sobre dos principios que no son decorativos: son la razón de que el préstamo exista con esta forma y no con otra.
 
-El prestamista graba un vídeo leyendo uno artículo-ensayo en base al plan original (`./plan-oro/plan-oro.md`) para presentar el proyecto a las tres partes implicadas: la joyera, el prestatario, y él mismo como registro de intención. 
+**Eco-sostenible.** El préstamo activa la economía con cuidado de la cadena completa. El activo que se presta no se adquiere por el canal más barato: pasa primero por las manos de un proveedor que trabaja en condiciones dignas, con materiales de cadena ética certificada, y genera trabajo real y tributable en el proceso. El dinero circula antes de llegar al receptor: toca tierra, genera impacto, deja huella documental. La eco-sostenibilidad no es un adjetivo del activo: es la arquitectura del encargo.
 
-**Estado:** `[ ] Pendiente de grabación`
-**guión**: `[ ] ./output/articulo.md`
+**Eco-fraterno.** El préstamo ofrece suelo económico fraterno. El activo que llega al receptor no lleva un contador de intereses ni una fecha de vencimiento perentoria: llega como infraestructura de agencia — algo que puede conservarse, custodiarse, o emplearse según lo exija la vida, sin que ninguna de esas decisiones active penalización ni genere vergüenza legal. El contrato formaliza ante la administración tributaria lo que en el fondo es un acto de fe: que el prestamista presta lo que está dispuesto a no recuperar, y que el receptor recibe algo que le pertenece de verdad aunque deba devolverlo si puede.
 
-### 2. Carpeta de proyecto
-
-Todo el aparato documental, legal y operativo — lo que estás leyendo. Incluye:
-
-- Base legal y fiscal del préstamo
-- Bitácoras de las 5 fases (registros sobre la marcha)
-- Cuadernillo para la joyera (`cuadernillo-joyera.md`)
-- Cuadernillo para el prestamista (`cuadernillo-prestamista.md`)
-- Cuaderno para el receptor (`cuaderno-receptor.md`)
-- Seguimiento de retorno del préstamo (en bitácora de Fase 5 y post-entrega)
-- Referencia de oro ecoresponsable (`oro-ecoresponsable-referencia.md`)
-
-### 3. Joya de oro + cuadernillo del receptor
-
-El rosario físico de hasta 24 piezas de oro ecoresponsable, entregado junto con el `cuaderno-receptor.md` impreso o digital.
+Para el desarrollo conceptual completo: `sdk/concepto.md`.
 
 ---
 
-## Índice completo de la documentación
+## La estructura del SDK
 
-| Documento | Qué contiene |
-|-----------|-------------|
-| **Este archivo** | Portada, ejes, entregables, relato operativo, escenarios, objetivos |
-| `bitacora-fase-1.md` | Bitácora Fase 1: Encargar la pieza |
-| `bitacora-fase-2.md` | Bitácora Fase 2: Legalizar la pieza |
-| `bitacora-fase-3.md` | Bitácora Fase 3: Encargar el papeleo |
-| `bitacora-fase-4.md` | Bitácora Fase 4: Ceremonia de entrega |
-| `bitacora-fase-5.md` | Bitácora Fase 5: Legalizar el papeleo + seguimiento de retorno |
-| `cuadernillo-joyera.md` | Cuadernillo para la joyera: encargo, materiales, facturación, trazabilidad |
-| `cuadernillo-prestamista.md` | Cuadernillo para el prestamista: fases, obligaciones fiscales, registro de devoluciones |
-| `cuaderno-receptor.md` | Cuaderno para quien recibe la pieza: opciones de uso, conversión, circuito ético, Hacienda |
-| `oro-ecoresponsable-referencia.md` | Pack de referencia: certificaciones, proveedores europeos, países de origen, cadena completa |
-| `proyecto.config.md` | Configuración del proyecto para el Consejo Asesor (voz, antagonistas, corpus, estilo) |
-| `output/` | Piezas literarias generadas a partir del material |
-| `./plan-oro/plan-oro.md` | Material fuente: sesión original con la guía legal-fiscal y el ensayo |
-| `../../PLUGIN_SCRIPTORIUM/PRODUCCIONES/PLAN_ORO/INPUT/` | Fichas tratadas + config de producción |
-
-
-## Los objetivos, vistos desde el final
-
-Se propone un circuito económico de tres nodos (prestamista, joyera, prestatario) donde cada euro que circula cumple más de una función:
-
-**Derivar ahorro a inversión en oro con carga ecosocial.** El prestamista no guarda dinero en un banco: lo convierte en oro ecoresponsable fabricado por una artesana local. El ahorro no duerme en una cuenta corriente al 0,5% — circula, se transforma en materia, se pone sobre un cuerpo. Si el oro mantiene su revalorización típica y el rosario vuelve intacto (escenario A o D), la inversión habrá superado a cualquier depósito bancario. Si no vuelve, el prestamista habrá invertido en algo que ningún fondo indexado puede ofrecer: el usufructo fraterno.
-
-**Activar el negocio de la joyera.** La prima factura un encargo relevante — diseño, materiales, horas de taller. El dinero toca tierra antes de llegar al prestatario: pasa por las manos de una artesana autónoma que tributa, que compra oro con trazabilidad, que pone su oficio al servicio de un encargo que no es ni comercial puro ni filantrópico puro sino algo que el lenguaje fiscal no tiene nombre para clasificar pero que la economía real reconoce inmediatamente: trabajo digno pagado a precio justo.
-
-**Abrir espacio al prestatario sin presión de devolución.** Un préstamo convencional empezaría a contar intereses desde el día uno. Este no. Este espera. Espera a que la persona que recibió el oro pueda, si puede, devolverlo — y si no puede, no pasa nada, porque el contrato ya contemplaba esa posibilidad desde antes de firmarse, que es lo que distingue a un préstamo fraterno de un préstamo bancario: el banco presta lo que espera recuperar; el prestatario presta lo que está dispuesto a perder.
+```
+sdk/
+  concepto.md                       ← El doble eje fundamentado
+  framework-5-fases.md              ← Las 5 fases operativas genéricas
+  escenarios.md                     ← Los 4 escenarios de devolución
+  roles/
+    proveedor.template.md           ← Plantilla: artesano/proveedor
+    prestamista.template.md         ← Plantilla: prestamista
+    receptor.template.md            ← Plantilla: receptor
+  plantillas/
+    bitacora-fase.template.md       ← Plantilla genérica de bitácora (×5)
+    contrato-prestamo.template.md   ← Contrato con las 4 cláusulas base
+    anexo-tecnico.template.md       ← Tabla de módulos y valoración
+    registro-devoluciones.template.md ← Registro de retornos
+  legal/
+    estructura-fiscal.md            ← Triángulo fiscal genérico
+    clausulas-base.md               ← Las 4 cláusulas: su razón de ser
+  cadena-etica/
+    criterios.md                    ← Qué significa "cadena ética" para cualquier activo
+    certificaciones-tipo.md         ← Fairmined, FSC, GOTS, Fairtrade y equivalentes
+  config.template.md                ← Plantilla de proyecto.config para cada mod
+```
 
 ---
 
-## Nota de archivo
+## Las cinco fases
 
-Este documento es la portada y puerta de entrada al proyecto «Eco-sostenible y eco-fraterno». Todo lo que aquí se cuenta en forma de relato está descompuesto en documentación técnica en los archivos referenciados en el índice. El relato no sustituye a los documentos: los vertebra. Las bitácoras de cada fase son los registros vivos; los cuadernillos son las instrucciones para cada parte.
+Todo préstamo eco-sostenible y eco-fraterno recorre cinco fases desde el encargo hasta el seguimiento:
 
-Para producir piezas literarias derivadas de este material, ver la configuración de producción en `../../PLUGIN_SCRIPTORIUM/PRODUCCIONES/PLAN_ORO/INPUT/config.md`.
+| Fase | Nombre genérico | Qué produce |
+|------|----------------|-------------|
+| **1** | Comisionar el activo | Encargo al proveedor con especificaciones éticas |
+| **2** | Documentar el activo | Factura, certificado de trazabilidad, anexo técnico |
+| **3** | Formalizar el préstamo | Contrato con 4 cláusulas, documentación del receptor |
+| **4** | Acto de entrega | Entrega física, acta firmada, cuadernillo al receptor |
+| **5** | Registro y seguimiento | Presentación fiscal, archivo, registro de retornos |
 
-Para invocar al Consejo Asesor sobre cualquier aspecto del proyecto, usar: `@{agente} PLAN ORO {tema}`.
+Para el detalle operativo de cada fase: `sdk/framework-5-fases.md`.
+
+---
+
+## Las cuatro cláusulas base
+
+Ningún contrato instanciado desde este SDK es válido sin las cuatro:
+
+1. **Interés 0%** — El tiempo no penaliza al receptor.
+2. **Revalorización invertida** — La plusvalía del activo beneficia al receptor; el riesgo de mercado lo absorbe el prestamista.
+3. **Condición-umbral de solvencia** — La obligación de devolución solo se activa si el receptor supera la insolvencia documentada.
+4. **Devolución parcial en especie** — Módulo a módulo, sin calendario, sin penalización por discontinuidad.
+
+Para la justificación de cada cláusula: `sdk/legal/clausulas-base.md`.
+
+---
+
+## Los cuatro escenarios de devolución
+
+Una vez entregado el activo, cualquiera de estos desenlaces es legítimo y está previsto por el contrato:
+
+| Escenario | Qué pasa |
+|-----------|----------|
+| **A: Intacto** | El receptor conserva el activo. El umbral no se supera. Préstamo en suspenso indefinido. |
+| **B: Gradual** | El receptor devuelve módulo a módulo según puede, al valor nominal del préstamo. |
+| **C: Liquidación** | El receptor vende módulos para necesidades vitales. El activo desaparece. No hay devolución. |
+| **D: Rebote** | El receptor usa módulos como capital semilla, prospera, activa la devolución. |
+
+Para el desarrollo de cada escenario: `sdk/escenarios.md`.
+
+---
+
+## Los tres roles
+
+Cada préstamo instanciado desde el SDK tiene tres agentes activos:
+
+- **Proveedor** — Artesano, fabricante, o productor que crea el activo con materiales de cadena ética. Tercero comercial: factura, tributa, no es parte del contrato de préstamo.
+- **Prestamista** — Motor del circuito. Financia, coordina, formaliza ante la administración tributaria. Asume el riesgo del activo.
+- **Receptor** — Portador del activo. Cuatro opciones legítimas de uso. Su agencia es el objeto del préstamo.
+
+Para las plantillas de cuadernillo de cada rol: `sdk/roles/`.
+
+---
+
+## Cómo crear un mod
+
+Un mod es una instanciación del SDK para un activo, jurisdicción, y circunstancia específicos. Reside en su propia rama (`mods/{nombre-mod}`) y añade un directorio `mod-{nombre}/` encima de la base del SDK.
+
+**Pasos:**
+
+1. **Crear rama** desde `main`: `git checkout -b mods/{nombre-mod}`
+2. **Copiar y completar** `sdk/config.template.md` → `mod-{nombre}/proyecto.config.md`, rellenando todos los `{{PLACEHOLDERS}}`
+3. **Instanciar las plantillas de roles** (`sdk/roles/`) para el activo concreto → `mod-{nombre}/roles/`
+4. **Crear las 5 bitácoras** a partir de `sdk/plantillas/bitacora-fase.template.md` → `mod-{nombre}/bitacoras/bitacora-fase-{1-5}.md`
+5. **Completar contrato y anexo técnico** (`sdk/plantillas/`) con los valores concretos
+6. **Crear referencia de cadena ética** del activo específico → `mod-{nombre}/cadena-etica/`
+7. **Escribir el README del mod** → `mod-{nombre}/README.md`, documentando los dos ejes, los entregables, y cómo este activo instancia el SDK
+
+**Estructura de la rama `mods/{nombre-mod}`:**
+
+```
+README.md         ← Portada SDK (este fichero, sin cambios)
+sdk/              ← Base SDK (sin cambios)
+mod-{nombre}/
+  README.md       ← Portada del mod
+  proyecto.config.md
+  cadena-etica/   ← Referencia de certificación para el activo del mod
+  roles/          ← Cuadernillos instanciados para las partes concretas
+  bitacoras/      ← 5 bitácoras con los nombres y checkpoints del mod
+  fuente/         ← Material fuente del mod (sesiones, notas de origen)
+  output/         ← Piezas literarias o documentales derivadas
+```
+
+**Merge de actualizaciones del SDK:** Las mejoras al SDK en `main` se incorporan al mod mediante `git merge main`. Los ficheros de `mod-{nombre}/` son exclusivos de la rama y no generan conflictos.
+
+---
+
+## Mods disponibles
+
+| Rama | Activo | Estado |
+|------|--------|--------|
+| `mods/oro` | Oro ecoresponsable (Fairmined/Fairtrade) | Activo — ver `mod-oro/README.md` |
+
+---
+
+## Referencia de cadena ética
+
+El activo de cualquier mod debe cumplir cuatro criterios de cadena ética: trazabilidad del origen, trabajo digno en el nodo artesanal, impacto positivo documentado en los productores primarios, e impacto ambiental mínimo verificable.
+
+Para los criterios detallados: `sdk/cadena-etica/criterios.md`.
+Para las certificaciones por tipo de activo (Fairmined, FSC, GOTS, Fairtrade, RJC): `sdk/cadena-etica/certificaciones-tipo.md`.
+
+---
+
+## Nota sobre el nombre del repositorio
+
+El nombre `sdk-prestamos-eco-sostenibles-eco-fraternos` describe lo que la rama `main` contiene: el framework genérico. Los mods — cada instanciación concreta — residen en sus propias ramas y añaden lo específico sin modificar la base. El activo que inspiró el SDK es el oro ecoresponsable (`mods/oro`); el concepto que lo generó es el que subyace a cualquier economía que necesite, al mismo tiempo, activar cadenas de producción éticas y ofrecer suelo económico a quienes están por debajo del umbral de solvencia.
