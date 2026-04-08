@@ -1,5 +1,7 @@
 # SDK de préstamos eco-sostenibles y eco-fraternos
 
+Web: https://escrivivir-co.github.io/sdk-prestamos-eco-sostenibles-eco-fraternos
+
 > Framework documental para estructurar préstamos fraternos de bienes con cadena
 > ética — desde la comisión del activo hasta su seguimiento y resolución legal.
 > Raíz de la rama `main`. Los mods específicos residen en sus propias ramas (`mods/*`).
